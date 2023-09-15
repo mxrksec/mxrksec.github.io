@@ -6,11 +6,17 @@
     <title>X-ST's Personal Network</title>
     <style>
         body {
-            background-color: black;
             font-family: "Courier New", monospace; /* Pixelated font */
-            color: white;
             margin: 0;
             padding: 0;
+        }
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+        .light-mode {
+            background-color: white;
+            color: black;
         }
         .profile {
             display: flex;
@@ -20,7 +26,7 @@
         }
         .profile a {
             text-decoration: none; /* Remove underlines from profile links */
-            color: white;
+            color: inherit;
         }
         .profile img {
             width: 30px; /* Adjust image width as needed */
@@ -49,12 +55,48 @@
             height: 30px; /* Adjust image height as needed */
         }
         .contact-text {
-            font-size: 14px; /* Adjust text size as needed */
+            font-size: 12px; /* Adjust text size as needed */
             text-align: center;
+            margin-top: 5px; /* Add space between text and icons */
+        }
+        .toggle {
+            text-align: center;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .toggle label {
+            cursor: pointer;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            background-color: #ccc;
+            border-radius: 30px;
+            position: relative;
+        }
+        .toggle label::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .toggle input[type="checkbox"] {
+            display: none;
+        }
+        .toggle input[type="checkbox"]:checked + label::before {
+            left: 30px;
         }
     </style>
 </head>
-<body>
+<body class="dark-mode">
+    <div class="toggle">
+        <input type="checkbox" id="toggle-switch">
+        <label for="toggle-switch"></label>
+    </div>
     <div class="profile">
         <a href="https://github.com/XST2N3T"><img src="/github-icon.png" alt="GitHub"></a>
         <a href="https://infosec.exchange/@XST2N3T"><img src="/mastodon-icon.png" alt="Mastodon"></a>
@@ -74,13 +116,29 @@
     </p>
     <div class="contact-icons">
         <div class="contact-text">
-            <p>CONTACT ME THROUGH EMAIL</p>
             <a href="mailto:exoduspanda7104@protonmail.com"><img src="/email-icon.png" alt="Email"></a>
+            <br>
+            <p style="font-size: 12px;">CONTACT ME THROUGH EMAIL</p>
         </div>
         <div class="contact-text">
-            <p>CONTACT INSTANTLY</p>
             <a href="https://matrix.to/#/@mxrk-n3t:matrix.org:matrix.org"><img src="/matrix-icon.png" alt="Matrix"></a>
+            <br>
+            <p style="font-size: 12px;">CONTACT INSTANTLY</p>
         </div>
     </div>
+
+    <script>
+        const toggleSwitch = document.querySelector('#toggle-switch');
+
+        toggleSwitch.addEventListener('change', () => {
+            if (toggleSwitch.checked) {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+            } else {
+                document.body.classList.remove('light-mode');
+                document.body.classList.add('dark-mode');
+            }
+        });
+    </script>
 </body>
 </html>
