@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
+    <title>Post Network</title>
     <style>
         body {
             font-family: 'YourRobotoFont', sans-serif;
@@ -14,7 +14,7 @@
         }
 
         /* Top left icons */
-        .profile img{
+        .profile img {
             width: 25px; /* Adjust image width as needed */
             height: 25px; /* Adjust image height as needed */
             border-radius: 50%; /* Rounded profile image */
@@ -32,6 +32,7 @@
             display: inline-block;
             width: 60px;
             height: 34px;
+            border-radius: 17px; /* Make the toggle round */
         }
 
         .toggle-slider {
@@ -54,6 +55,7 @@
             left: 4px;
             bottom: 4px;
             background-color: #fff; /* Default circle color */
+            border-radius: 50%;
             -webkit-transition: .4s;
             transition: .4s;
         }
@@ -83,7 +85,7 @@
         .about-me {
             position: absolute;
             top: 10px;
-            right: 60px;
+            right: 90px; /* Adjust the right position to move it away from the toggle */
             font-weight: bold;
         }
     </style>
@@ -114,5 +116,18 @@
     <div class="about-me">
         <a href="about-me.html">About Me</a>
     </div>
+
+    <!-- JavaScript for the toggle switch functionality -->
+    <script>
+        const toggleSwitch = document.querySelector('.toggle-input');
+
+        toggleSwitch.addEventListener('change', () => {
+            if (toggleSwitch.checked) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        });
+    </script>
 </body>
 </html>
