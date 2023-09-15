@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <style>
+        body {
+            font-family: 'YourRobotoFont', sans-serif;
+            background-color: #f0f0f0; /* Background color for the whole page */
+            color: #333; /* Text color */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top left icons */
+        .icons {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        /* Toggle switch for light/dark mode */
+        .toggle-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc; /* Default background color */
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: #fff; /* Default circle color */
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .toggle-input:checked + .toggle-slider {
+            background-color: #007bff; /* Background color when dark mode enabled */
+        }
+
+        .toggle-input:checked + .toggle-slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Posts section */
+        .posts-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        /* About Me section */
+        .about-me {
+            position: absolute;
+            top: 10px;
+            right: 60px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top left icons -->
+    <div class="icons">
+        <img src="github-icon.png" alt="GitHub Icon">
+        <img src="mastodon-icon.png" alt="Mastodon Icon">
+        <img src="twitter-icon.png" alt="Twitter Icon">
+    </div>
+
+    <!-- Toggle switch for light/dark mode -->
+    <div class="toggle-container">
+        <label class="toggle-switch">
+            <input type="checkbox" class="toggle-input">
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+
+    <!-- Posts section -->
+    <div class="posts-section">
+        <h2>POSTS</h2>
+        <!-- Your post content goes here -->
+    </div>
+
+    <!-- About Me section -->
+    <div class="about-me">
+        <a href="about-me.html">About Me</a>
+    </div>
+</body>
+</html>
